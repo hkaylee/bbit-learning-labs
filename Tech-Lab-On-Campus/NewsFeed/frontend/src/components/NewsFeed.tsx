@@ -17,14 +17,14 @@ function NewsFeed({ articles }: NewsFeedProps ) {
 
     return (
         <div className="stories-container">
-            <div className="stories-grid">
-            {/* TODO: Remove the spans below and show a feed of news articles  */}
-                <span className='instruction'>Part 3: Implement News Feed</span>
-                <span className='instruction'>Part 3: Implement News Feed</span>
-                <span className='instruction'>Part 3: Implement News Feed</span>
+            <div className="stories-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {articles.map((article, index) => (
+                    <NewsCard key={index} article={article} />
+                ))}
             </div>
         </div>
     );
 };
 
-export default NewsFeed;
+
+
