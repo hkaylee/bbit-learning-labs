@@ -1,4 +1,4 @@
-PYTHON       ?= python3.12
+PYTHON       ?= python3.11
 DEPENDENCIES  = frontend/node_modules
 FLASK_APP     = backend/app
 FLASK_PORT    = 8000
