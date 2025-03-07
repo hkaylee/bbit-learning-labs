@@ -5,6 +5,12 @@ interface NewsCardProps {
     article: Article;
 }
 
+function truncateText(text: string, maxLength: number) {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength) + "...";
+    }
+    return text;
+}
 
 function NewsCard({ article }: NewsCardProps) {
     // PART 2: Create a reusable news card to use with general stories
@@ -22,13 +28,30 @@ function NewsCard({ article }: NewsCardProps) {
     // Hint: Some classes in `globals.css` could help with styling
 
     return (
-        <div className="news-card">
-            <div className="news-info">
-                {/* TODO: Remove the span below and implement a reusable NewsCard */}
-                <span className='instruction'>Part 2: Build Reusable News Card</span>
-            </div>
+        <div className="news-card bg-white shadow-md rounded-lg overflow-hidden mb-4 transition-transform transform hover:scale-105">
+            <Link href={article.url} target="_blank" rel="noopener noreferrer">
+                <div>
+                    <img
+                        src={article.image_url}
+                        alt={article.title}
+                        className="w-full h-48 object-cover"
+                    />
+                </div>
+                <div className="p-4">
+                    <h2 className="text-xl font-bold text-gray-800 mb-2">{article.title}</h2>
+                    <p className="text-gray-600 text-sm mb-3">
+                        {truncateText(article.body, 100)}
+                    </p>
+                    <span className="text-blue-500 text-sm">Read more</span>
+                </div>
+            </Link>
         </div>
     );
 }
 
 export default NewsCard;
+
+
+
+
+
